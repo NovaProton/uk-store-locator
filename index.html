@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Store Locator – UK</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href= main.css>
+</head>
+
+<body>
+    <div id="container">
+        <div id="sidebar" class="collapsed">
+            <div id="search-container">
+                <div class="search-wrapper">
+                    <input type="text" id="search-box" placeholder="Enter UK Postcode or Location">
+                    <button id="search-icon-btn" title="Search">
+                        🔍
+                    </button>
+                </div>
+                <button id="use-location-btn">Use My Location</button>
+                <button id="reset-map-btn">↺ Reset Map</button>
+
+                <button id="toggle-stores-btn">
+                    <span>Show Store List</span>
+                    <span id="toggle-arrow">▼</span>
+                </button>
+                <div id="search-status"></div>
+            </div>
+            <div id="stores-list"></div>
+        </div>
+        <div id="map"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src=stores.js></script>
+<script src=main.js></script>
+</body>
+
+</html>

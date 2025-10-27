@@ -1,0 +1,292 @@
+ html,
+        body {
+            margin: 0;
+            height: 100%;
+            font-family: system-ui, sans-serif;
+        }
+
+        #container {
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Sidebar */
+        #sidebar {
+            width: 320px;
+            border-right: 1px solid #ccc;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Search Bar */
+        #search-container {
+            padding: 0.75rem;
+            border-bottom: 2px solid #eee;
+            background: #f9f9f9;
+            position: relative;
+        }
+
+        .search-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        #search-box {
+            flex: 1;
+            padding-right: 2rem;
+            /* space for icon */
+        }
+
+        #search-icon-btn {
+            position: absolute;
+            right: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: #0078ff;
+            transition: color 0.2s;
+        }
+
+        #search-icon-btn:hover {
+            color: #0056cc;
+        }
+
+        #reset-map-btn {
+            width: 100%;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        #reset-map-btn:hover {
+            background: #5a6268;
+        }
+
+
+
+        #search-box {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            box-sizing: border-box;
+        }
+
+        #search-btn {
+            width: 100%;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background: #0078ff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        #search-btn:hover {
+            background: #0056cc;
+        }
+
+        #search-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        #use-location-btn {
+            width: 100%;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background: #637152;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        #use-location-btn:hover {
+            background: #637152;
+        }
+
+        #search-status {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: #666;
+            min-height: 1.2rem;
+        }
+
+        /* Toggle button for mobile */
+        #toggle-stores-btn {
+            display: none;
+            width: 100%;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        #toggle-stores-btn:hover {
+            background: #5a6268;
+        }
+
+        #toggle-arrow {
+            transition: transform 0.3s;
+            font-size: 1.2rem;
+        }
+
+        #toggle-arrow.open {
+            transform: rotate(180deg);
+        }
+
+        /* Stores list container */
+        #stores-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0.75rem;
+        }
+
+        .store {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .store:hover,
+        .store.active {
+            background: #f3f3f3;
+        }
+
+        .store img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .store-details h3 {
+            margin: 0 0 0.25rem 0;
+            font-size: 1rem;
+        }
+
+        .store-details small {
+            color: #666;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .store-details p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #444;
+        }
+
+        /* Map */
+        #map {
+            flex: 1;
+        }
+
+        /* Popup */
+        .popup-content {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .popup-content img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+        }
+
+        .popup-links a {
+            display: flex;
+            align-items: center;
+            color: #0078ff;
+            text-decoration: none;
+            margin-top: 0.25rem;
+            gap: 0.4rem;
+        }
+
+        .popup-links svg {
+            width: 16px;
+            height: 16px;
+            fill: #0078ff;
+        }
+
+        /* Desktop layout */
+        @media (min-width: 769px) {
+            #container {
+                flex-direction: row;
+            }
+
+            #sidebar {
+                height: 100vh;
+            }
+        }
+
+        /* Mobile layout */
+        @media (max-width: 768px) {
+            #container {
+                flex-direction: column;
+            }
+
+            #sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #ccc;
+                height: auto;
+                max-height: 70vh;
+                transition: max-height 0.3s ease;
+            }
+
+            #sidebar.collapsed {
+                max-height: none;
+                height: auto;
+            }
+
+            #sidebar.collapsed #stores-list {
+                display: none;
+            }
+
+            #toggle-stores-btn {
+                display: flex;
+            }
+
+            #stores-list {
+                max-height: calc(70vh - 200px);
+            }
+
+            #map {
+                height: 50vh;
+                min-height: 300px;
+            }
+        }
